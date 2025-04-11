@@ -1,13 +1,18 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+// import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import HeroImage1 from "@/public/key-image-01.png";
 import HeroImage2 from "@/public/key-image-02.png";
 import CustomCard from "@/components/CustomCard";
 import VisionMission from "@/components/VissionMissionCard";
+import Certifications from "@/components/CertificationCard";
+import TrustUs from "@/components/TrustUsCard";
+import StrategicConsultation from "@/components/ConsultationCard";
+import ReadyToGetStarted from "@/components/ReadyToGetStarted";
+import KeySystemFooter from "@/components/Footer";
 
 export default function Home() {
   const trustedPartners = [
@@ -40,17 +45,29 @@ export default function Home() {
       image: "/keysystem-07.png",
     },
   ];
+  const brands = [
+    {
+      name: "software group",
+      image: "/keysystem-45.png",
+    },
+    {
+      name: "software group",
+      image: "/keysystem-40.png",
+    },
+    {
+      name: "cognizant",
+      image: "/keysystem-41.png",
+    },
+    {
+      name: "temenos",
+      image: "/keysystem-42.png",
+    },
+    {
+      name: "netinfo",
+      image: "/keysystem-43.png",
+    },
+  ];
 
-  // const services = [
-  //   { title: "Core banking services" },
-  //   { title: "Staff augmentation solutions" },
-  //   { title: "Business Intelligence" },
-  //   { title: "Internal audit solutions" },
-  //   { title: "KeySystem software testing" },
-  //   { title: "Online/mobile lending solution" },
-  //   { title: "Data Warehouse" },
-  //   { title: "Cybersecurity Solutions" },
-  // ];
   return (
     <main className="relative bg-gradient-to-b from-[#0C0F2C] to-[#040514] text-white overflow-x-hidden">
       {/* Decorative Gradient Shapes */}
@@ -336,64 +353,89 @@ export default function Home() {
           <Button variant="default">Contact Us</Button>
         </div>
         <div className="flex flex-wrap justify-center gap-8">
-          {[...Array(4)].map((_, i) => (
-            <Image
-              key={i}
-              src="next.svg"
-              alt="Certification Logo"
-              width={120}
-              height={120}
-              className="opacity-80 hover:opacity-100 transition duration-300"
-            />
-          ))}
+          <Certifications />
         </div>
       </section>
 
-      {/* Process Workflow Section */}
-      <section className="py-20 px-4 text-center">
+      {/* They trus us section */}
+      <section className="px-4 text-center">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-bold mb-10"
         >
-          Our Process Workflow
+          They trust us
         </motion.h2>
-        <div className="grid md:grid-cols-4 gap-6">
-          {["Consult", "Plan", "Execute", "Support"].map((step, i) => (
-            <Card key={i} className="bg-[#14172F] p-6">
-              <CardContent>
-                <h3 className="text-xl font-semibold mb-2">{step}</h3>
-                <p className="text-sm text-gray-400">
-                  Step-by-step tailored strategy ensuring your success.
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="flex flex-wrap justify-center gap-8">
+          <TrustUs />
         </div>
       </section>
 
       {/* Call To Action Footer Section */}
-      <footer className="py-20 px-4 text-center bg-[#10131E]">
+      <section className="py-10 px-4 text-center bg-[#10131E]">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-bold mb-6"
         >
-          Ready to Transform Your Business?
+          Our Process
         </motion.h2>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex justify-center space-x-4"
+          className="capitalize text-zinc-400 text-[20px] mb-6"
         >
-          <Button variant="default">Contact Us</Button>
-          <Button variant="outline">Get Started</Button>
-        </motion.div>
-      </footer>
+          At KeySystem, we leave you with a lasting impression
+        </motion.p>
+        <div>
+          <StrategicConsultation />
+        </div>
+      </section>
+      {/* Our partners section */}
+      <section className="px-4 py-6 text-center bg-gray-950">
+        <motion.h2
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-4xl font-bold mb-10"
+        >
+          Our partners
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="capitalize text-zinc-400 text-[20px] mb-6"
+        >
+          Creating a synergy with global brands
+        </motion.p>
+        <section className="py-10 px-4 text-center">
+          <div className="flex flex-wrap justify-center gap-8">
+            {brands.map((brand, index) => (
+              <div key={index} className="flex items-center justify-center">
+                <Image
+                  src={brand.image}
+                  alt={`${brand.name} logo`}
+                  width={150}
+                  height={50}
+                  className="opacity-100 hover:opacity-80 transition duration-300"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Ready to get Started section */}
+        <section>
+          <ReadyToGetStarted />
+        </section>
+        <footer>
+          <KeySystemFooter />
+        </footer>
+      </section>
     </main>
   );
 }
