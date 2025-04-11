@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 import logo from "@/public/key-logo.png";
+import { ChevronDown } from "lucide-react";
 
 export default function Header() {
   return (
@@ -19,7 +20,10 @@ export default function Header() {
         <ul className="list-none flex gap-4 sm:gap-8">
           <li className="hover:text-primary cursor-pointer">Home</li>
           <li className="hover:text-primary cursor-pointer">About</li>
-          <li className="hover:text-primary cursor-pointer">Services</li>
+          <li className="hover:text-primary cursor-pointer flex items-center gap-1">
+            Services
+            <ChevronDown size={16} />
+          </li>
           <li className="hover:text-primary cursor-pointer">Contact</li>
         </ul>
       </nav>
