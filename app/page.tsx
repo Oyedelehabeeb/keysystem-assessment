@@ -102,7 +102,7 @@ export default function Home() {
             <Button variant="default" size="lg">
               Get Started
             </Button>
-            <Button variant="secondary" size="lg">
+            <Button variant="outline" size="lg">
               Learn More
             </Button>
           </motion.div>
