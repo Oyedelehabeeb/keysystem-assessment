@@ -14,6 +14,7 @@ This website serves as the digital presence for KeySystem Technology, showcasing
 
 ## Technologies Used
 
+- **Frontend **: React.js
 - **Frontend Framework**: Next.js 14
 - **Styling**: TailwindCSS
 - **Animations**: Framer Motion
